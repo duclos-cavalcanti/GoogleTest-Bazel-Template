@@ -8,9 +8,7 @@ def symlink_test_report():
     p = Path("index.html")
 
     if (op_system.lower() == "linux" or op_system.lower() == "darwin"):
-        p.symlink_to("test/report/index.html")
-    else:
-        p.symlink_to("test\report\index.html")
+        p.symlink_to("test/reports/test/index.html")
 
 def get_test_report():
     import os
@@ -19,10 +17,7 @@ def get_test_report():
     op_system = platform.system()
 
     if (op_system.lower() == "linux" or op_system.lower() == "darwin"):
-        os.system(f"python test/html/gtest2html.py bazel-testlogs/test/{test_project_name}/test.xml test/report/index.html > /dev/null")
-
-    elif(op_system.lower() == "windows"):
-        os.system(f"python test\html\gtest2html.py bazel-testlogs\test\{test_project_name}\test.xml test\report\index.html >> NUL")
+        os.system(f"python test/reports/html/gtest2html.py bazel-testlogs/test/{test_project_name}/test.xml test/reports/test/index.html > /dev/null")
 
     else:
         print("-- this is an unsupported operating system --")
@@ -44,7 +39,7 @@ def main():
 
     launch_test()
     get_test_report()
-    symlink_test_report()
+    # symlink_test_report()
 
 
 if __name__ == '__main__':
