@@ -105,22 +105,17 @@ python test.py
 ## 5. File Structure
 ```
 .
-├── build.py
-├── LICENSE
 ├── main
-│   ├── BUILD
 │   ├── include
 │   ├── lib
+│   │   └── include
 │   └── src
-├── README.md
-├── test
-│   ├── BUILD
-│   ├── coverage
-│   ├── html
-│   ├── include
-│   ├── report
-│   └── src
-├── test.py
-└── WORKSPACE
-
+└── test
+    ├── include
+    ├── mock
+    │   └── include
+    ├── reports
+    │   ├── coverage
+    │   └── html
+    └── src
 ```
